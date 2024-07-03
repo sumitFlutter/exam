@@ -121,14 +121,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   TextFormField(controller: txtEmail,
                     keyboardType: TextInputType.emailAddress,
                       validator: (value) {
-                    if(value!.isNotEmpty) {
-                      EmailValidator.validate(value)
-                          ? null
-                          : "Please enter a valid email";
-                    }
-                    else{
-                      return "Email can't empty";
-                    }
+                        if (value!.isEmpty) {
+                          return "Email is required";
+                        } else if (!RegExp(
+                            "^[a-zA-Z0-9.!#\$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*\$")
+                            .hasMatch(value!)) {
+                          return "enter the valid email";
+                        }
                         return null;
                       },
                     decoration: const InputDecoration(label: Text("Email:"),
@@ -206,16 +205,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   TextFormField(controller: txtEmail,
                       keyboardType: TextInputType.emailAddress,
                       validator: (value) {
-                        if(value!.isNotEmpty) {
-                          EmailValidator.validate(value)
-                              ? null
-                              : "Please enter a valid email";
-                        }
-                        else{
-                          return "Email can't empty";
+                        if (value!.isEmpty) {
+                          return "Email is required";
+                        } else if (!RegExp(
+                            "^[a-zA-Z0-9.!#\$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*\$")
+                            .hasMatch(value!)) {
+                          return "enter the valid email";
                         }
                         return null;
-                      },
+                                              },
                       decoration: const InputDecoration(label: Text("Email:"),
                           prefixIcon: Icon(Icons.mail),
                           border: OutlineInputBorder())),
