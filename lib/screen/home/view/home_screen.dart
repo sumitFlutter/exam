@@ -238,7 +238,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         border: OutlineInputBorder()),),
                   const SizedBox(height: 18,),
                   Center(
-                    child: ElevatedButton(child: const Text("Add"),onPressed: () async {
+                    child: ElevatedButton(child: const Text("Update"),onPressed: () async {
                       if(key.currentState!.validate())
                       {
                         DBModel model=DBModel(name: txtName.text, email: txtEmail.text, mobile: txtMobile.text,id: modelIndex.id);
