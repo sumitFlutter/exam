@@ -31,57 +31,60 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: const Text("Contact App"),
       ),
-      body: Column(
-        children:[ Obx(
-          () =>  Expanded(
-            child: ListView.builder(itemBuilder: (context, index) {
-              return ListTile(
-                onTap: () {
-                  editContact(home.dataList[index]);
-                },
-                onLongPress: () {
-                  showDialog(context: context, builder: (context) {
-                    return AlertDialog(
-                      title: const Text("Are You Sure?"),
-                      content: Text("${home.dataList[index].name} will be deleted!"),
-                      actions: [
-                        ElevatedButton(onPressed: () {
-                          Navigator.pop(context);
-                        }, child: const Text("No!")),
-                        ElevatedButton(onPressed: () {
-                          DbHelper.dbHelper.deleteData(home.dataList[index].id!);
-                          home.readData();
-                          Navigator.pop(context);
-                        }, child: const Text("Yes!"))
-                      ],
-                    );
-                  },);
-                },
-                title: Text(home.dataList[index].name!),
-                subtitle: Text(home.dataList[index].mobile!),
-                leading: CircleAvatar(radius: 35,
-                backgroundColor: Colors.primaries[index].shade300,
-                child: Center(child: Text(home.dataList[index].name!.substring(0,1),style: const TextStyle(fontWeight: FontWeight.bold),),),),
-                trailing: Row(mainAxisSize: MainAxisSize.min,
-                children: [
-                  IconButton(onPressed: () async {
-                    await launchUrl(Uri.parse("sms:${home.dataList[index].mobile}"));
-                  }, icon: const Icon(Icons.sms)),
-                  const SizedBox(width: 1,),
-                  IconButton(onPressed: () async {
-                    await launchUrl(Uri.parse("tel:${home.dataList[index].mobile}"));
-                  }, icon: const Icon(Icons.call))
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children:[ Obx(
+            () =>  Expanded(
+              child: ListView.builder(itemBuilder: (context, index) {
+                return ListTile(
+                  onTap: () {
+                    editContact(home.dataList[index]);
+                  },
+                  onLongPress: () {
+                    showDialog(context: context, builder: (context) {
+                      return AlertDialog(
+                        title: const Text("Are You Sure?"),
+                        content: Text("${home.dataList[index].name} will be deleted!"),
+                        actions: [
+                          ElevatedButton(onPressed: () {
+                            Navigator.pop(context);
+                          }, child: const Text("No!")),
+                          ElevatedButton(onPressed: () {
+                            DbHelper.dbHelper.deleteData(home.dataList[index].id!);
+                            home.readData();
+                            Navigator.pop(context);
+                          }, child: const Text("Yes!"))
+                        ],
+                      );
+                    },);
+                  },
+                  title: Text(home.dataList[index].name!),
+                  subtitle: Text(home.dataList[index].mobile!),
+                  leading: CircleAvatar(radius: 35,
+                  backgroundColor: Colors.primaries[index].shade300,
+                  child: Center(child: Text(home.dataList[index].name!.substring(0,1),style: const TextStyle(fontWeight: FontWeight.bold),),),),
+                  trailing: Row(mainAxisSize: MainAxisSize.min,
+                  children: [
+                    IconButton(onPressed: () async {
+                      await launchUrl(Uri.parse("sms:${home.dataList[index].mobile}"));
+                    }, icon: const Icon(Icons.sms)),
+                    const SizedBox(width: 1,),
+                    IconButton(onPressed: () async {
+                      await launchUrl(Uri.parse("tel:${home.dataList[index].mobile}"));
+                    }, icon: const Icon(Icons.call))
 
-                ],),
-              );
-            },
-            itemCount: home.dataList.length,),
+                  ],),
+                );
+              },
+              itemCount: home.dataList.length,),
+            ),
           ),
-        ),
-          SizedBox(height: MediaQuery.sizeOf(context).height*0.2,
-          child: const Center(child: Text("On tap of any contact you can edit contact\nOn long press of any contact You can delete contact")),)
-          ]
+            SizedBox(height: MediaQuery.sizeOf(context).height*0.2,
+            child: const Center(child: Text("On tap of any contact you can edit contact\nOn long press of any contact You can delete contact")),)
+            ]
 
+        ),
       ),
       floatingActionButton: FloatingActionButton(onPressed: () {
         addContact();
