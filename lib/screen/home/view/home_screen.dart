@@ -48,12 +48,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         content: Text("${home.dataList[index].name} will be deleted!"),
                         actions: [
                           ElevatedButton(onPressed: () {
-                            Navigator.pop(context);
+                            Get.back();
                           }, child: const Text("No!")),
                           ElevatedButton(onPressed: () {
                             DbHelper.dbHelper.deleteData(home.dataList[index].id!);
                             home.readData();
-                            Navigator.pop(context);
+                            Get.back();
                           }, child: const Text("Yes!"))
                         ],
                       );
@@ -158,7 +158,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           actions: [
             ElevatedButton(onPressed: () {
-              Navigator.pop(context);
+              Get.back();
             }, child: const Text("Cancel")),
             ElevatedButton(child: const Text("Add"),onPressed: () async {
               if(key.currentState!.validate())
@@ -240,7 +240,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           actions: [
             ElevatedButton(onPressed: () {
-              Navigator.pop(context);
+              Get.back();
             }, child: const Text("Cancel")),
             ElevatedButton(child: const Text("Update"),onPressed: () async {
               if(key.currentState!.validate())
