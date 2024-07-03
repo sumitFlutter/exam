@@ -21,7 +21,7 @@ class DbHelper{
   Future<Database> initDB() async {
     Directory d1=await getApplicationSupportDirectory();
     String path=d1.path;
-    String joinPath=join(path,"quotes.db");
+    String joinPath=join(path,"contact.db");
     return openDatabase(joinPath,onCreate: (db, version) {
       db.execute('CREATE TABLE contact(id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT,email TEXT,mobile TEXT)');
     },version: 1);
