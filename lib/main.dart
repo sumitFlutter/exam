@@ -18,6 +18,7 @@ class _ExamState extends State<Exam> {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       routes: myAppRoutes
     );
   }

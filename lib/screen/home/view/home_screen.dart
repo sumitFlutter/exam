@@ -20,6 +20,12 @@ class _HomeScreenState extends State<HomeScreen> {
   TextEditingController txtEmail=TextEditingController();
   GlobalKey<FormState> key=GlobalKey<FormState>();
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    home.readData();
+  }
+  @override
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(
       appBar: AppBar(
