@@ -1,16 +1,12 @@
-# exam
+# Contact App
 
 A new Flutter project.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Back up and sync your contacts across all your devices
+• Keep your contacts safely backed up to your Google Account
+• Access your contacts from anywhere that you're signed in, including your next phone
+• Keep your contacts organised and up to date
+• you can edit your contact,delete
+• you contact will be permanetly saved
+• you can call your contact from our app
+• you can msg your contact from our app
