@@ -151,17 +151,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         prefixIcon: Icon(Icons.call),
                         border: OutlineInputBorder()),),
                   const SizedBox(height: 18,),
-                  Center(
-                    child: ElevatedButton(child: const Text("Add"),onPressed: () async {
-                      if(key.currentState!.validate())
-                        {
-                          DBModel model=DBModel(name: txtName.text, email: txtEmail.text, mobile: txtMobile.text);
-                          await DbHelper.dbHelper.addData(model);
-                          await home.readData();
-                          Get.back();
-                        }
-                    },),
-                  )
+
                 ],
               ),
             ),
@@ -169,7 +159,16 @@ class _HomeScreenState extends State<HomeScreen> {
           actions: [
             ElevatedButton(onPressed: () {
               Navigator.pop(context);
-            }, child: const Text("Cancel"))
+            }, child: const Text("Cancel")),
+            ElevatedButton(child: const Text("Add"),onPressed: () async {
+              if(key.currentState!.validate())
+              {
+                DBModel model=DBModel(name: txtName.text, email: txtEmail.text, mobile: txtMobile.text);
+                await DbHelper.dbHelper.addData(model);
+                await home.readData();
+                Get.back();
+              }
+            },)
           ],
         ),
       );
@@ -235,17 +234,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         prefixIcon: Icon(Icons.call),
                         border: OutlineInputBorder()),),
                   const SizedBox(height: 18,),
-                  Center(
-                    child: ElevatedButton(child: const Text("Update"),onPressed: () async {
-                      if(key.currentState!.validate())
-                      {
-                        DBModel model=DBModel(name: txtName.text, email: txtEmail.text, mobile: txtMobile.text,id: modelIndex.id);
-                        await DbHelper.dbHelper.updateData(model);
-                        await home.readData();
-                        Get.back();
-                      }
-                    },),
-                  )
                 ],
               ),
             ),
@@ -253,7 +241,16 @@ class _HomeScreenState extends State<HomeScreen> {
           actions: [
             ElevatedButton(onPressed: () {
               Navigator.pop(context);
-            }, child: const Text("Cancel"))
+            }, child: const Text("Cancel")),
+            ElevatedButton(child: const Text("Update"),onPressed: () async {
+              if(key.currentState!.validate())
+              {
+                DBModel model=DBModel(name: txtName.text, email: txtEmail.text, mobile: txtMobile.text,id: modelIndex.id);
+                await DbHelper.dbHelper.updateData(model);
+                await home.readData();
+                Get.back();
+              }
+            },)
           ],
         ),
       );
