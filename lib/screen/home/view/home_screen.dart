@@ -158,7 +158,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           DBModel model=DBModel(name: txtName.text, email: txtEmail.text, mobile: txtMobile.text);
                           await DbHelper.dbHelper.addData(model);
                           await home.readData();
-                          Navigator.pop(context);
+                          Get.back();
                         }
                     },),
                   )
@@ -242,7 +242,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         DBModel model=DBModel(name: txtName.text, email: txtEmail.text, mobile: txtMobile.text,id: modelIndex.id);
                         await DbHelper.dbHelper.updateData(model);
                         await home.readData();
-                        Navigator.pop(context);
+                        Get.back();
                       }
                     },),
                   )
