@@ -15,8 +15,6 @@ Back up and sync your contacts across all your devices<br>
 </p>
 <p>
   
-
-<video>
 https://github.com/sumitFlutter/exam/assets/153794386/ab81d369-98f7-4726-b1b6-958613c0b0e4
-</video>
+
 </p>
